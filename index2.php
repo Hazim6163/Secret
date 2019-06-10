@@ -7,8 +7,8 @@ if(isset($_POST['password'])){
         ?>
         
         
-<div class="container-fluid  h-100 wrapperSetName" style="">
-    <div class="row h-100 justify-content-center " style="padding-top: 10vh">
+<div class="container-fluid  h-100">
+    <div class="row h-100 justify-content-center ">
         <div class="col-12  col-lg-6 col-xl-4">
             <table class="table table-borderless messageTable" id="messagesTable">
               <thead>
@@ -24,7 +24,10 @@ if(isset($_POST['password'])){
                   </th>
                 </tr>
                 <tr>
-                  <th scope="row" class="messageFrom"></th>
+                  <th scope="row" class="messageFromWrapper">
+                      <p class="messageFrom">مرحبا كيفك</p>
+                      <p class="messageFrom">    مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك </p>
+                  </th>
                 </tr>
               </tbody>
             </table>

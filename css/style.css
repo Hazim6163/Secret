@@ -44,11 +44,29 @@ body {
     -webkit-border-radius:50px 0px 50px 75px;
 }
 
-.messageFrom{
+
+
+.messageFromWrapper{
     text-align:left;
-    padding-left: 10% !important;
-    padding-right: 30% !important;
+    padding-left: 0px !important;
+    padding-right: 70px !important;
     width: 100vw;
+}
+
+.messageFrom{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px !important;
+    padding-left: 30px;
+    text-align:left;
+    background-color: gainsboro;
+    color: brown;
+    font-size: 1rem;
+    display: inline-block;
+    /*radius*/
+    border-radius:0px 50px 50px 75px;
+    -moz-border-radius:0px 50px 50px 75px;
+    -webkit-border-radius:0px 50px 50px 75px;
 }
 
 ::-webkit-scrollbar {
