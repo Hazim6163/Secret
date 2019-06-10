@@ -18,7 +18,10 @@ if(isset($_POST['password'])){
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row" class="messageTo"></th>
+                  <th scope="row" class="messageToWrapper">
+                      <p class="messageTo">مرحبا كيفك</p>
+                      <p class="messageTo">    مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك مرحبا كيفك </p>
+                  </th>
                 </tr>
                 <tr>
                   <th scope="row" class="messageFrom"></th>
