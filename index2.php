@@ -29,6 +29,23 @@ if(isset($_POST['password'])){
                 var objDiv = document.getElementById("messagesTable");
                 objDiv.scrollTop = objDiv.scrollHeight;
             </script>
+            
+            <!-- send message form -->
+            <form action="" method="post" autocomplete="off">
+             <input type="hidden" name="username" value=<?php echo $username;?></inpu>
+             <input type="hidden" name="date" value=<?php date('m/d/Y h:i:s a', time());?>>
+              
+              <div class="form-row justify-content-center">
+                <div class="col-9 messageContainerWrapper">
+                  <input type="text" class="form-control messageContainer" id="inlineFormInputName" >
+                </div>
+                <div class="col-3 col-xl-2 align-self-center" style="padding:0px;">
+                  <button type="submit" class="btn btn-danger sendMessageBtn"><i class="far fa-paper-plane"></i></button>
+                </div>
+              </div>
+              
+            </form>
+            
         </div>
     </div>
 </div> 
