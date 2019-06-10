@@ -15,8 +15,24 @@ body {
 }
 
 
+.messageTable{
+    height: 60vh !important;
+    overflow-y: scroll!important;
+    display: block;
+    color: blanchedalmond;
+}
 
+.messageTo{
+    text-align:right;
+    padding-left: 30% !important;
+    padding-right: 10% !important;
+}
 
+.messageFrom{
+    text-align:left;
+    padding-left: 10% !important;
+    padding-right: 30% !important;
+}
 
 
 
