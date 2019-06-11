@@ -31,3 +31,6 @@ take the secret chanell from the user as an input and validate if founded in the
 
 ## commit3: send verfied secret chanell to login page:
 to make the login specific to this secret chanell and more opration.. inside the login page we used right here sesson to send the secret chanell with. and reject the empty value that come from user ...
+
+## commit4: design login page:
+inside the loginToChanell.php  with previues verifed the secert chanell 

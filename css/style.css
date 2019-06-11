@@ -3,10 +3,6 @@
           box-sizing: border-box;
 }
 
-html {
-    max-height: 100%;
-    overflow-y: hidden;
-}
 body {
     background-color: #222;
   padding: 0;
@@ -76,24 +72,6 @@ body {
 .sendMessageForm{
     height: 10vh !important;
     padding-bottom: 5px;
-}
-
-::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
-}
-/* Optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-    background: #FF0000;
-}
-
-::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
-}
-/* Optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-    background: #FF0000;
 }
 
 
