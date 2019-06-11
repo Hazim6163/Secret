@@ -17,11 +17,16 @@ if(isset($_POST['secret_chanell'])){
     }
     
     while($row = mysqli_fetch_array($get_chanell_query)){
-        echo $secret_chanell_db = $row['secret_chanell'];
+        $secret_chanell_db = $row['secret_chanell'];
     }
     
-    if($secret_chanell == $secret_chanell_db){
-        header("Location: loginToChanell.php")
+    if($secret_chanell == ''){
+        header("Location: ../index.php");;
+    }else if($secret_chanell == $secret_chanell_db){
+        session_start();
+        $_SESSION['secret_chanell'] = $secret_chanell;
+        header("Location: loginToChanell.php");
+        exit();
     }else{
         header("Location: ../index.php");
     }
