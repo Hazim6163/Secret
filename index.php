@@ -22,8 +22,8 @@
 
 	<div id="notfound">
 		<div class="notfound">
-		    	<form action="testPass.php" method="post" id="pass" autocomplete="off">
-                      <input autocomplete="off" type="number" class="form-control inputpass" name="password">
+		    	<form action="include/checkChanell.php" method="post" id="pass" autocomplete="off">
+                      <input autocomplete="off" type="number" class="form-control inputpass" name="secret_chanell">
                 </form>
                   
 			<div class="notfound-404">

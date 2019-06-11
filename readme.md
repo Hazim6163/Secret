@@ -24,3 +24,7 @@ in this section we will make the action to going to chat page after founding the
 ## commit1: set up the configration file (db.php) :
 **db.php** will allow us to configuer the connection between php and mySQL when we need it 
 [Udemy helper video to connect database in the right secure way](https://www.udemy.com/php-for-complete-beginners-includes-msql-object-oriented/learn/lecture/2507948#overview)
+
+## commit2: verify the chanell
+take the secret chanell from the user as an input and validate if founded in the database to redirct the user to login to chanell page if the chanell not exist then the user will be redirect to index.php 
+[Udemy helper video to validate from database in php](https://www.udemy.com/php-for-complete-beginners-includes-msql-object-oriented/learn/lecture/2559712#overview)
