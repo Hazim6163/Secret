@@ -8,6 +8,7 @@ if(isset($_POST['secret_chanell'], $_POST['username'], $_POST['password'])){
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['password'] = $_POST['password'];
         session_write_close();
+        header("Location: main.php");
         
     }else{
         session_start();
