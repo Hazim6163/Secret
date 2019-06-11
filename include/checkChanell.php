@@ -26,7 +26,7 @@ if(isset($_POST['secret_chanell'])){
         session_start();
         $_SESSION['secret_chanell'] = $secret_chanell;
         header("Location: loginToChanell.php");
-        exit();
+        session_write_close();
     }else{
         header("Location: ../index.php");
     }

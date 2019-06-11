@@ -9,6 +9,7 @@ if(isset($_SESSION['secret_chanell'])){
     
 }else{
     header("Location: ../index.php");
+    session_write_close();
 }
 
 
