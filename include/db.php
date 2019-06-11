@@ -48,4 +48,39 @@ function secret_chanell_validate($secret_chanell){
     }
 }
 
+function user_inside_chanell_validate($username, $password, $secret_chanell){
+    global $connection;
+    $username_db = null;
+    $password_db = null;
+    $secret_chanell_db = null;
+    
+    $username = mysqli_real_escape_string($connection, $username);
+    $password = mysqli_real_escape_string($connection, $password);
+    $secret_chanell = mysqli_real_escape_string($connection, $secret_chanell);
+    
+    $query = "SELECT * FROM users WHERE username = '{$username}' ";
+    $get_user_query = mysqli_query($connection, $query);  
+    
+    // if there's an error :
+    if(!$get_user_query){
+        die("QUERY FAILED" . mysqli_error($connection));
+    }
+    
+    while($row = mysqli_fetch_array($get_user_query)){
+        $secret_chanell_db = $row['secret_chanell'];
+        $username_db = $row['username'];
+        $password_db = $row['password'];
+    }
+    
+    if($secret_chanell == '' || $username == '' || $password == ''){
+        return false;
+    }else if($secret_chanell_db == $secret_chanell && $username_db == $username && $password_db == $password){
+        return true;
+    }else{
+        return false;
+    }
+    
+    
+}
+
 ?>
