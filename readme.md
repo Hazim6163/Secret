@@ -13,3 +13,10 @@ for this commit we will create the following tables inide the database in the fi
 2. **users** table content | username | password | secret chanell 
 3. **secret chanell messages table** content | messagebody | from | date | seen to
 will make the secret chanell messages table later dynamic with php after founded the secret chanell and going to chat page if not founded the table then creat a one for this specific chanell .
+
+# sen1.1:
+in this section we will make the action to going to chat page after founding the secret chanell ... like : 
+- secret chanell founded
+- going to the login or what named right now set name and then insert username and password 
+- check if the user authencated 
+- going to the chat page after checking if the secret chanell messages table already created in the database 
