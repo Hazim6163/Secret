@@ -37,7 +37,7 @@ if(isset($_POST['password'])){
             </script>
             
             <!-- send message form -->
-            <form action="" method="post" autocomplete="off">
+            <form action="" method="post" autocomplete="off" class="sendMessageForm">
              <input type="hidden" name="username" value=<?php echo $username;?></inpu>
              <input type="hidden" name="date" value=<?php date('m/d/Y h:i:s a', time());?>>
               

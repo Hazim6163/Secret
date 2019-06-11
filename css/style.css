@@ -3,6 +3,10 @@
           box-sizing: border-box;
 }
 
+html {
+    max-height: 100%;
+    overflow-y: hidden;
+}
 body {
     background-color: #222;
   padding: 0;
@@ -16,7 +20,7 @@ body {
 
 
 .messageTable{
-    height: 60vh !important;
+    height: 80vh !important;
     overflow-y: scroll!important;
     display: block;
     color: blanchedalmond;
@@ -69,6 +73,11 @@ body {
     -webkit-border-radius:0px 50px 50px 75px;
 }
 
+.sendMessageForm{
+    height: 10vh !important;
+    padding-bottom: 5px;
+}
+
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
@@ -77,6 +86,16 @@ body {
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
 }
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
 
 .messageContainer{
     padding-left: 0px !important;
