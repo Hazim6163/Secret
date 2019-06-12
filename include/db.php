@@ -105,4 +105,8 @@ function get_chanell_des($secret_chanell){
    return $secret_chanell_des; 
 }
 
+function save_message_to_chanell($secret_chanell, $username, $message){
+    return $message;
+}
+
 ?>
