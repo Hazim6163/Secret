@@ -34,3 +34,7 @@ to make the login specific to this secret chanell and more opration.. inside the
 
 ## commit4: design login page:
 inside the loginToChanell.php  with previues verifed the secert chanell 
+
+
+# sen1.2:
+in this section we will trying to save the sended message to the database with out refreshing the hole page and try to retrive it in the messages table 
