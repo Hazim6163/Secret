@@ -54,3 +54,6 @@ and fixed the js error when retrive the secret chanell value and username
 
 ## commit description : 
 save the message to the database 
+
+## commit description :
+to make the database support other languages which content other english alphabet we need to change the collations in the database to utf-general-ci and add the charset to the database connection.
