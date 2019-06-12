@@ -8,6 +8,7 @@ if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_chanell
     $secret_chanell = $_SESSION['secret_chanell'];
     $username = $_SESSION['username'];
     $password = $_SESSION['password'];
+    $secret_chanell_des = $_SESSION['secret_chanell_description'];
     
     if (user_inside_chanell_validate($username, $password, $secret_chanell)){
         unset($_SESSION['password']);
@@ -15,15 +16,13 @@ if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_chanell
         
         include 'header.php';
 ?>
-<div class="container-fluid  h-100">
-    <div class="row h-100 justify-content-center ">
+<div class="container-fluid  h-100" style="padding-left: 0px; padding-right: 0px;">
+    <div class="row h-100 justify-content-center">
         <div class="col-12  col-lg-6 col-xl-4">
-            <table class="table table-borderless messageTable" id="messagesTable">
-              <thead>
-                <!--<tr>
-                  <th scope="col" class="messageTo">marha7adhjas ajksdhas jhaskjd ashdjka skjdkjasdj kjasdkj askjd a</th>
-                </tr> -->
-              </thead>
+           <div class="chanellDes">
+               <img src="img/icons8_Romance_104px.png" alt="icon" style="height: 7vh; width:7vh; display:inline; padding: 1vh;"><?php echo $secret_chanell_des?>
+           </div>
+            <table class="table table-borderless messageTable" id="messagesTable" style="padding-left: 15px; padding-right: 15px;">
               <tbody>
                 <tr>
                   <th scope="row" class="messageToWrapper">
@@ -45,7 +44,7 @@ if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_chanell
             </script>
             
             <!-- send message form -->
-            <form action="" method="post" autocomplete="off" class="sendMessageForm">
+            <form action="" method="post" autocomplete="off" class="sendMessageForm" style="padding-left: 15px; padding-right: 15px;">
              <input type="hidden" name="username" value=<?php echo $username;?>
              <input type="hidden" name="date" value= <?php echo date('m/d/Y h:i:s a', time());?> >
               

@@ -83,4 +83,26 @@ function user_inside_chanell_validate($username, $password, $secret_chanell){
     
 }
 
+function get_chanell_des($secret_chanell){
+    global $connection;
+    $secret_chanell_des = null;
+    
+    $secret_chanell = mysqli_real_escape_string($connection, $secret_chanell);
+    
+    // set up the query
+    $query = "SELECT * FROM secret_chanells WHERE secret_chanell = '{$secret_chanell}' ";
+    $get_chanell_query = mysqli_query($connection, $query);
+    
+    // if there's an error :
+    if(!$get_chanell_query){
+        die("QUERY FAILED" . mysqli_error($connection));
+    }
+    
+    while($row = mysqli_fetch_array($get_chanell_query)){
+        $secret_chanell_des = $row['description'];
+    }
+    
+   return $secret_chanell_des; 
+}
+
 ?>

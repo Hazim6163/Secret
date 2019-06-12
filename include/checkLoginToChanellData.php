@@ -7,6 +7,7 @@ if(isset($_POST['secret_chanell'], $_POST['username'], $_POST['password'])){
         $_SESSION['secret_chanell'] = $_POST['secret_chanell'];
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['password'] = $_POST['password'];
+        $_SESSION['secret_chanell_description'] = get_chanell_des($_POST['secret_chanell']);
         session_write_close();
         header("Location: main.php");
         
