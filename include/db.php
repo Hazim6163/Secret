@@ -105,14 +105,36 @@ function get_chanell_des($secret_chanell){
    return $secret_chanell_des; 
 }
 
-function save_message_to_chanell($secret_chanell, $username, $message){
+function save_message_to_chanell_messages_table($secret_chanell, $username, $message){
     global $connection;
     
     $username = mysqli_real_escape_string($connection, $username );   
     $message = mysqli_real_escape_string($connection, $message );  
     $secret_chanell = mysqli_real_escape_string($connection, $secret_chanell );  
     
-    return check_chanell_messages_table($secret_chanell);
+    $messageTableStatus = check_chanell_messages_table($secret_chanell);
+    if($messageTableStatus != 0){
+        $messages_table_name = "messages_".$secret_chanell;
+        $query = "INSERT INTO ".$messages_table_name."(username, message_body, secret_chanell) ";
+                 
+        $query .= "VALUES('{$username}','{$message}','{$secret_chanell}') ";
+
+        $save_message_query = mysqli_query($connection, $query);  
+        
+        
+        if($save_message_query){
+            return $message; 
+        }else{
+            die("QUERY FAILED" . mysqli_error($connection));
+            return "message cant be saved";
+        }
+
+
+             
+        
+    }else{
+        return "failed to save message : messages table cant be created or founded";
+    }
     
 }
 

@@ -50,3 +50,7 @@ add check chanell messages table function to db.php to:
 - return the result as int where : 1-> table already exist 2-> new table created 0-> failed to found and create the table
 
 and fixed the js error when retrive the secret chanell value and username
+
+
+## commit description : 
+save the message to the database 
