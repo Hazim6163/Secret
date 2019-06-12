@@ -11,7 +11,7 @@ if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_chanell
     $secret_chanell_des = $_SESSION['secret_chanell_description'];
     
     if (user_inside_chanell_validate($username, $password, $secret_chanell)){
-        unset($_SESSION['password']);
+        //unset($_SESSION['password']);
         session_write_close();
         
         include 'header.php';
@@ -24,7 +24,7 @@ if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_chanell
            <div class="chanellDes">
                <img src="img/icons8_Romance_104px.png" alt="icon" style="height: 7vh; width:7vh; display:inline; padding: 1vh;"><?php echo $secret_chanell_des?>
            </div>
-            <table class="table table-borderless messageTable" style="padding-left: 15px; padding-right: 15px;">
+            <table class="table table-borderless messageTable" style="padding-left: 15px; padding-right: 15px;" id="messagesTableTop">
               <tbody id="messagesTable">
                 <tr>
                   <th scope="row" class="messageToWrapper">
@@ -41,7 +41,7 @@ if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_chanell
               </tbody>
             </table>
             <script>
-                var objDiv = document.getElementById("messagesTable");
+                var objDiv = document.getElementById("messagesTableTop");
                 objDiv.scrollTop = objDiv.scrollHeight;
             </script>
             

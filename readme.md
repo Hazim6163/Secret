@@ -38,3 +38,7 @@ inside the loginToChanell.php  with previues verifed the secert chanell
 
 # sen1.2:
 in this section we will trying to save the sended message to the database with out refreshing the hole page and try to retrive it in the messages table 
+
+## commit description : 
+- validate if the message empty or not inside js
+- add the message node to the messages table after pass it inside db.php file
