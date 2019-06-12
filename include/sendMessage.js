@@ -1,7 +1,8 @@
 function sendMessage() {
-    var secretChanell = "<?php echo $secret_chanell ?>";
-    var username = "<?php echo $username ?>";
+    var secretChanell = document.getElementById('secret_chanell').value;
+    var username = document.getElementById('username').value;
     var message = document.getElementById('message').value;
+    console.log(secretChanell+"\n"+username+"\n"+ message)
     if(message.length != 0 && message != " "){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {

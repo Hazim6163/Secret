@@ -106,7 +106,65 @@ function get_chanell_des($secret_chanell){
 }
 
 function save_message_to_chanell($secret_chanell, $username, $message){
-    return $message;
+    global $connection;
+    
+    $username = mysqli_real_escape_string($connection, $username );   
+    $message = mysqli_real_escape_string($connection, $message );  
+    $secret_chanell = mysqli_real_escape_string($connection, $secret_chanell );  
+    
+    return check_chanell_messages_table($secret_chanell);
+    
+}
+
+/*
+        this function will returned a int number : 
+        table already exist return 1
+        new table craeted return 2
+        failed to finde and create the table 0
+        
+*/
+function check_chanell_messages_table($secret_chanell){
+    global $connection;
+    
+    $secret_chanell = mysqli_real_escape_string($connection, $secret_chanell);
+    
+    // check if the messages table already exist:
+    $query = "SHOW TABLES LIKE 'messages_".$secret_chanell."';";
+    if ($finde_table_result = $connection->query($query)) {
+        
+        if($finde_table_result->num_rows >= 1) {
+            return 1;
+        }else{
+            // create table query if the last query retun rows < 1: 
+            if(create_chanell_messages_table($secret_chanell)){
+                return 2;
+            }else{
+                return 0;
+            }
+        }
+    }else {
+        die("QUERY FAILED" . mysqli_error($connection));
+        return 0;
+    }
+    
+}
+
+/*
+    will return true if table craeted false if not
+*/
+function create_chanell_messages_table($secret_chanell){
+    global $connection;
+    
+    $secret_chanell = mysqli_real_escape_string($connection, $secret_chanell);
+    
+    $query =" CREATE TABLE `secret_messanger`.`messages_".$secret_chanell."` ( `id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(255) NOT NULL , `message_body` TEXT NOT NULL , `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `secret_chanell` INT NOT NULL , `message_status` INT(1) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+            
+    if ($create_table_result = $connection->query($query)) {
+        return true;
+    }else{
+        die("Create table query cannot be completed" . mysqli_error($connection));
+        return false;
+    }
 }
 
 ?>

@@ -47,7 +47,8 @@ if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_chanell
             
             <!-- send message form -->
             <form method="post" autocomplete="off" class="sendMessageForm" style="padding-left: 15px; padding-right: 15px;" onsubmit="sendMessage();return false">
-             <input type="hidden" name="username" value="<?php echo $username;?>">
+             <input type="hidden" id="username" value="<?php echo $username;?>">
+             <input type="hidden" id="secret_chanell" value="<?php echo $secret_chanell;?>">
               
               <div class="form-row justify-content-center">
                 <div class="col-9 messageContainerWrapper">

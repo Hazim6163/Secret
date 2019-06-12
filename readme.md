@@ -42,3 +42,11 @@ in this section we will trying to save the sended message to the database with o
 ## commit description : 
 - validate if the message empty or not inside js
 - add the message node to the messages table after pass it inside db.php file
+
+## commit description :
+add check chanell messages table function to db.php to:
+- check if the messages table for this chanell is alread exist 
+- create messages table for chanell if not exist 
+- return the result as int where : 1-> table already exist 2-> new table created 0-> failed to found and create the table
+
+and fixed the js error when retrive the secret chanell value and username
