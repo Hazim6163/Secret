@@ -3,14 +3,14 @@ include 'db.php';
 $title = 'Messenger';
 
 session_start();
-if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_chanell'])){
+if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_channel'])){
     // save the params to use it later in the page :
-    $secret_chanell = $_SESSION['secret_chanell'];
+    $secret_channel = $_SESSION['secret_channel'];
     $username = $_SESSION['username'];
     $password = $_SESSION['password'];
-    $secret_chanell_des = $_SESSION['secret_chanell_description'];
+    $secret_channel_des = $_SESSION['secret_channel_description'];
     
-    if (user_inside_chanell_validate($username, $password, $secret_chanell)){
+    if (user_inside_channel_validate($username, $password, $secret_channel)){
         //unset($_SESSION['password']);
         session_write_close();
         
@@ -21,8 +21,8 @@ if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_chanell
 <div class="container-fluid  h-100" style="padding-left: 0px; padding-right: 0px;">
     <div class="row h-100 justify-content-center no-gutters" >
         <div class="col-12  col-lg-6 col-xl-4">
-           <div class="chanellDes">
-               <img src="img/icons8_Romance_104px.png" alt="icon" style="height: 7vh; width:7vh; display:inline; padding: 1vh;"><?php echo $secret_chanell_des?>
+           <div class="channelDes">
+               <img src="img/icons8_Romance_104px.png" alt="icon" style="height: 7vh; width:7vh; display:inline; padding: 1vh;"><?php echo $secret_channel_des?>
            </div>
             <table class="table table-borderless messageTable" style="padding-left: 15px; padding-right: 15px;" id="messagesTableTop">
               <tbody id="messagesTable">
@@ -48,7 +48,7 @@ if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_chanell
             <!-- send message form -->
             <form method="post" autocomplete="off" class="sendMessageForm" style="padding-left: 15px; padding-right: 15px;" onsubmit="sendMessage();return false">
              <input type="hidden" id="username" value="<?php echo $username;?>">
-             <input type="hidden" id="secret_chanell" value="<?php echo $secret_chanell;?>">
+             <input type="hidden" id="secret_channel" value="<?php echo $secret_channel;?>">
               
               <div class="form-row justify-content-center">
                 <div class="col-9 messageContainerWrapper">

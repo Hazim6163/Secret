@@ -3,14 +3,14 @@ include 'db.php';
 
 $title = "Login";
 session_start();
-if(isset($_SESSION['secret_chanell'])){
-    // save the secret chanell to use it in the page :
-    $secret_chanell = $_SESSION['secret_chanell'];
-    unset($_SESSION['secret_chanell']);
+if(isset($_SESSION['secret_channel'])){
+    // save the secret channel to use it in the page :
+    $secret_channel = $_SESSION['secret_channel'];
+    unset($_SESSION['secret_channel']);
     session_write_close();
 
-    // validate the secret chanell:
-    if (secret_chanell_validate($secret_chanell)){
+    // validate the secret channel:
+    if (secret_channel_validate($secret_channel)){
         include 'header.php';
 ?>
  
@@ -18,9 +18,9 @@ if(isset($_SESSION['secret_chanell'])){
     <div class="row h-100 justify-content-center " style="padding-top: 10vh">
         <div class="col-12  col-lg-6 col-xl-4">
             <img src="img/heart.png" class="img-fluid" alt="Heart"/>
-            <form action="checkLoginToChanellData.php" method="post" autocomplete="off">
+            <form action="checkLoginTochannelData.php" method="post" autocomplete="off">
                    <div class="form-group">
-                        <input type="hidden" name="secret_chanell" value=<?php echo $secret_chanell;?>>
+                        <input type="hidden" name="secret_channel" value=<?php echo $secret_channel;?>>
                         <label for="username">Username</label>
                         <input type="text" autocomplete="off" class="form-control" name="username" aria-describedby="usernameHelp" placeholder="Enter your Username" style="background-color: #36282B; border:0px; color:#d6d4d4" value="">
                         <small id="usernameHelp" class="form-text " style="color: #954242; ">It will be your Name in the chat...</small>

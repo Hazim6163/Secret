@@ -19,8 +19,8 @@ if(!$connection){
 }
 
 
-$secret_chanell_db  = null;
-$secret_chanell  = null;
+$secret_channel_db  = null;
+$secret_channel  = null;
 
 
 $options = array(
@@ -35,44 +35,44 @@ $pusher = new Pusher\Pusher(
     $options
   );
 
-function secret_chanell_validate($secret_chanell){
+function secret_channel_validate($secret_channel){
     global $connection;
-    $secret_chanell_db  = null;
+    $secret_channel_db  = null;
     
     
-    $secret_chanell = mysqli_real_escape_string($connection, $secret_chanell);
+    $secret_channel = mysqli_real_escape_string($connection, $secret_channel);
     
     // set up the query
-    $query = "SELECT * FROM secret_chanells WHERE secret_chanell = '{$secret_chanell}' ";
-    $get_chanell_query = mysqli_query($connection, $query);
+    $query = "SELECT * FROM secret_channels WHERE secret_channel = '{$secret_channel}' ";
+    $get_channel_query = mysqli_query($connection, $query);
     
     // if there's an error :
-    if(!$get_chanell_query){
+    if(!$get_channel_query){
         die("QUERY FAILED" . mysqli_error($connection));
     }
     
-    while($row = mysqli_fetch_array($get_chanell_query)){
-        $secret_chanell_db = $row['secret_chanell'];
+    while($row = mysqli_fetch_array($get_channel_query)){
+        $secret_channel_db = $row['secret_channel'];
     }
     
-    if($secret_chanell == ''){
+    if($secret_channel == ''){
         return false;
-    }else if($secret_chanell == $secret_chanell_db){
+    }else if($secret_channel == $secret_channel_db){
         return true;
     }else{
         return false;
     }
 }
 
-function user_inside_chanell_validate($username, $password, $secret_chanell){
+function user_inside_channel_validate($username, $password, $secret_channel){
     global $connection;
     $username_db = null;
     $password_db = null;
-    $secret_chanell_db = null;
+    $secret_channel_db = null;
     
     $username = mysqli_real_escape_string($connection, $username);
     $password = mysqli_real_escape_string($connection, $password);
-    $secret_chanell = mysqli_real_escape_string($connection, $secret_chanell);
+    $secret_channel = mysqli_real_escape_string($connection, $secret_channel);
     
     $query = "SELECT * FROM users WHERE username = '{$username}' ";
     $get_user_query = mysqli_query($connection, $query);  
@@ -83,14 +83,14 @@ function user_inside_chanell_validate($username, $password, $secret_chanell){
     }
     
     while($row = mysqli_fetch_array($get_user_query)){
-        $secret_chanell_db = $row['secret_chanell'];
+        $secret_channel_db = $row['secret_channel'];
         $username_db = $row['username'];
         $password_db = $row['password'];
     }
     
-    if($secret_chanell == '' || $username == '' || $password == ''){
+    if($secret_channel == '' || $username == '' || $password == ''){
         return false;
-    }else if($secret_chanell_db == $secret_chanell && $username_db == $username && $password_db == $password){
+    }else if($secret_channel_db == $secret_channel && $username_db == $username && $password_db == $password){
         return true;
     }else{
         return false;
@@ -99,42 +99,42 @@ function user_inside_chanell_validate($username, $password, $secret_chanell){
     
 }
 
-function get_chanell_des($secret_chanell){
+function get_channel_des($secret_channel){
     global $connection;
-    $secret_chanell_des = null;
+    $secret_channel_des = null;
     
-    $secret_chanell = mysqli_real_escape_string($connection, $secret_chanell);
+    $secret_channel = mysqli_real_escape_string($connection, $secret_channel);
     
     // set up the query
-    $query = "SELECT * FROM secret_chanells WHERE secret_chanell = '{$secret_chanell}' ";
-    $get_chanell_query = mysqli_query($connection, $query);
+    $query = "SELECT * FROM secret_channels WHERE secret_channel = '{$secret_channel}' ";
+    $get_channel_query = mysqli_query($connection, $query);
     
     // if there's an error :
-    if(!$get_chanell_query){
+    if(!$get_channel_query){
         die("QUERY FAILED" . mysqli_error($connection));
     }
     
-    while($row = mysqli_fetch_array($get_chanell_query)){
-        $secret_chanell_des = $row['description'];
+    while($row = mysqli_fetch_array($get_channel_query)){
+        $secret_channel_des = $row['description'];
     }
     
-   return $secret_chanell_des; 
+   return $secret_channel_des; 
 }
 
-function save_message_to_chanell_messages_table($secret_chanell, $username, $message){
+function save_message_to_channel_messages_table($secret_channel, $username, $message){
     global $connection;
     global $pusher;
     
     $username = mysqli_real_escape_string($connection, $username );   
     $message = mysqli_real_escape_string($connection, $message );  
-    $secret_chanell = mysqli_real_escape_string($connection, $secret_chanell );  
+    $secret_channel = mysqli_real_escape_string($connection, $secret_channel );  
     
-    $messageTableStatus = check_chanell_messages_table($secret_chanell);
+    $messageTableStatus = check_channel_messages_table($secret_channel);
     if($messageTableStatus != 0){
-        $messages_table_name = "messages_".$secret_chanell;
-        $query = "INSERT INTO ".$messages_table_name."(username, message_body, secret_chanell) ";
+        $messages_table_name = "messages_".$secret_channel;
+        $query = "INSERT INTO ".$messages_table_name."(username, message_body, secret_channel) ";
                  
-        $query .= "VALUES('{$username}','{$message}','{$secret_chanell}') ";
+        $query .= "VALUES('{$username}','{$message}','{$secret_channel}') ";
 
         $save_message_query = mysqli_query($connection, $query);  
         
@@ -144,8 +144,8 @@ function save_message_to_chanell_messages_table($secret_chanell, $username, $mes
             $data['message_id'] = $last_id;
             $data['message_body'] = $message;
             $data['username'] = $username;
-            $data['secret_chanell'] = $secret_chanell;
-            $pusher->trigger($secret_chanell, 'send_message', $data);
+            $data['secret_channel'] = $secret_channel;
+            $pusher->trigger($secret_channel, 'send_message', $data);
             return $message; 
         }else{
             die("QUERY FAILED" . mysqli_error($connection));
@@ -168,20 +168,20 @@ function save_message_to_chanell_messages_table($secret_chanell, $username, $mes
         failed to finde and create the table 0
         
 */
-function check_chanell_messages_table($secret_chanell){
+function check_channel_messages_table($secret_channel){
     global $connection;
     
-    $secret_chanell = mysqli_real_escape_string($connection, $secret_chanell);
+    $secret_channel = mysqli_real_escape_string($connection, $secret_channel);
     
     // check if the messages table already exist:
-    $query = "SHOW TABLES LIKE 'messages_".$secret_chanell."';";
+    $query = "SHOW TABLES LIKE 'messages_".$secret_channel."';";
     if ($finde_table_result = $connection->query($query)) {
         
         if($finde_table_result->num_rows >= 1) {
             return 1;
         }else{
             // create table query if the last query retun rows < 1: 
-            if(create_chanell_messages_table($secret_chanell)){
+            if(create_channel_messages_table($secret_channel)){
                 return 2;
             }else{
                 return 0;
@@ -197,12 +197,12 @@ function check_chanell_messages_table($secret_chanell){
 /*
     will return true if table craeted false if not
 */
-function create_chanell_messages_table($secret_chanell){
+function create_channel_messages_table($secret_channel){
     global $connection;
     
-    $secret_chanell = mysqli_real_escape_string($connection, $secret_chanell);
+    $secret_channel = mysqli_real_escape_string($connection, $secret_channel);
     
-    $query =" CREATE TABLE `secret_messanger`.`messages_".$secret_chanell."` ( `id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(255) NOT NULL , `message_body` TEXT NOT NULL , `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `secret_chanell` INT NOT NULL , `message_status` INT(1) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $query =" CREATE TABLE `secret_messanger`.`messages_".$secret_channel."` ( `id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(255) NOT NULL , `message_body` TEXT NOT NULL , `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `secret_channel` INT NOT NULL , `message_status` INT(1) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
             
     if ($create_table_result = $connection->query($query)) {
         return true;

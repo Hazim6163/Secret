@@ -1,4 +1,4 @@
-var secretChanell = document.getElementById('secret_chanell').value;
+var secretchannel = document.getElementById('secret_channel').value;
 var username = document.getElementById('username').value;
 
 // creaete new pusher object to check and subscibe the channels 
@@ -8,16 +8,16 @@ var pusher = new Pusher('94c41e98c959a6147056', {
     });
 
 // subscribe the secret channel
-var channel = pusher.subscribe(secretChanell);
+var channel = pusher.subscribe(secretchannel);
 // set the event to send message
 channel.bind('send_message', function(data) {
     // handel and add some text to make opration to convert the JSON to js obj
     var text = '{ "message" : [' + JSON.stringify(data) + ']}';
     // convert the JSON to js obj
     obj = JSON.parse(text);
-    //{"message_id":5,"message_body":"tester","username":"Mustafa","secret_chanell":"1101998"}
+    //{"message_id":5,"message_body":"tester","username":"Mustafa","secret_channel":"1101998"}
     var message = obj.message[0];
-    if(message.username != username && message.secret_chanell == secretChanell){
+    if(message.username != username && message.secret_channel == secretchannel){
         var messageTable = document.getElementById("messagesTable");
         var tr = document.createElement("tr");
         var th = document.createElement("th");

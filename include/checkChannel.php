@@ -2,14 +2,14 @@
 include 'db.php';
 
 
-if(isset($_POST['secret_chanell'])){
+if(isset($_POST['secret_channel'])){
     
-    if (secret_chanell_validate($_POST['secret_chanell'])){
+    if (secret_channel_validate($_POST['secret_channel'])){
         session_start();
-        $_SESSION['secret_chanell'] = $_POST['secret_chanell'];
+        $_SESSION['secret_channel'] = $_POST['secret_channel'];
         $_SESSION['login_information_error']=false;
         session_write_close();
-        header("Location: loginFormToChanell.php");
+        header("Location: loginFormTochannel.php");
     }else{
         header("Location: ../index.php");
     }

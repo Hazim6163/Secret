@@ -1,8 +1,8 @@
 function sendMessage() {
-    var secretChanell = document.getElementById('secret_chanell').value;
+    var secretchannel = document.getElementById('secret_channel').value;
     var username = document.getElementById('username').value;
     var message = document.getElementById('message').value;
-    console.log(secretChanell+"\n"+username+"\n"+ message)
+    console.log(secretchannel+"\n"+username+"\n"+ message)
     if(message.length != 0 && message != " "){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -38,8 +38,8 @@ function sendMessage() {
     msgArgs += username;
     msgArgs += "&message=";
     msgArgs += message;
-    msgArgs += "&secret_chanell=";
-    msgArgs += secretChanell;
+    msgArgs += "&secret_channel=";
+    msgArgs += secretchannel;
 
     xhttp.send(msgArgs);
     
