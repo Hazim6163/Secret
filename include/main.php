@@ -63,8 +63,10 @@ if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_chanell
             
         </div>
     </div>
-</div> 
-<script type="text/javascript" src="sendMessage.js"></script>  
+</div>
+<script src="https://js.pusher.com/4.4/pusher.min.js"></script> 
+<script type="text/javascript" src="sendMessage.js"></script>
+<script type="text/javascript" src="getMessage.js"></script>
 <?php
     include 'footer.php';   
     }else{

@@ -64,3 +64,5 @@ in this section we will trying to:
 
 ## Trigger pusher Event:
 trigger pusher chanell with event send message when the user send the message after sotred it in the database
+
+## handel the Event: 

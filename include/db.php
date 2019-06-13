@@ -123,6 +123,7 @@ function get_chanell_des($secret_chanell){
 
 function save_message_to_chanell_messages_table($secret_chanell, $username, $message){
     global $connection;
+    global $pusher;
     
     $username = mysqli_real_escape_string($connection, $username );   
     $message = mysqli_real_escape_string($connection, $message );  
@@ -139,7 +140,7 @@ function save_message_to_chanell_messages_table($secret_chanell, $username, $mes
         
         
         if($save_message_query){
-            $last_id = mysqli_insert_id($conn);
+            $last_id = mysqli_insert_id($connection);
             $data['message_id'] = $last_id;
             $data['message_body'] = $message;
             $data['username'] = $username;
