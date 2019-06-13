@@ -11,7 +11,7 @@ if(isset($_SESSION['username'], $_SESSION['password'], $_SESSION['secret_channel
     $secret_channel_des = $_SESSION['secret_channel_description'];
     
     if (user_inside_channel_validate($username, $password, $secret_channel)){
-        //unset($_SESSION['password']);
+        unset($_SESSION['password']);
         session_write_close();
         
         include 'header.php';
