@@ -57,3 +57,7 @@ save the message to the database
 
 ## commit description :
 to make the database support other languages which content other english alphabet we need to change the collations in the database to utf-general-ci and add the charset to the database connection.
+
+# sen1.3:
+in this section we will trying to: 
+- get the sent messages from user A to the user B messages table with out refreshing the page 

@@ -1,0 +1,12 @@
+{
+    "name": "mustafa/secret",
+    "require": {
+        "pusher/pusher-php-server": "^3.4"
+    },
+    "authors": [
+        {
+            "name": "Mustafa",
+            "email": "hazim6163@gmail.com"
+        }
+    ]
+}
