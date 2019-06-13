@@ -61,3 +61,6 @@ to make the database support other languages which content other english alphabe
 # sen1.3:
 in this section we will trying to: 
 - get the sent messages from user A to the user B messages table with out refreshing the page 
+
+## Trigger pusher Event:
+trigger pusher chanell with event send message when the user send the message after sotred it in the database

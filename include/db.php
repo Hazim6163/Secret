@@ -1,4 +1,6 @@
 <?php
+require '../vendor/autoload.php';
+
 
 $db['db_host'] = "localhost";
 $db['db_user'] = "root";
@@ -19,6 +21,19 @@ if(!$connection){
 
 $secret_chanell_db  = null;
 $secret_chanell  = null;
+
+
+$options = array(
+                'cluster' => 'eu',
+                'encrypted' => true
+            );
+
+$pusher = new Pusher\Pusher(
+    '94c41e98c959a6147056',
+    '544cff687fb19126275e',
+    '802920',
+    $options
+  );
 
 function secret_chanell_validate($secret_chanell){
     global $connection;
@@ -124,6 +139,12 @@ function save_message_to_chanell_messages_table($secret_chanell, $username, $mes
         
         
         if($save_message_query){
+            $last_id = mysqli_insert_id($conn);
+            $data['message_id'] = $last_id;
+            $data['message_body'] = $message;
+            $data['username'] = $username;
+            $data['secret_chanell'] = $secret_chanell;
+            $pusher->trigger($secret_chanell, 'send_message', $data);
             return $message; 
         }else{
             die("QUERY FAILED" . mysqli_error($connection));
