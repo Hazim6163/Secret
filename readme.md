@@ -65,4 +65,8 @@ in this section we will trying to:
 ## Trigger pusher Event:
 trigger pusher chanell with event send message when the user send the message after sotred it in the database
 
-## handel the Event: 
+## handel the Event:
+
+## add message to messages table after checking the current user
+- check if the current user how created the trigger if not handel trigger
+- and create the message body in the messages table

@@ -15,5 +15,28 @@ channel.bind('send_message', function(data) {
     var text = '{ "message" : [' + JSON.stringify(data) + ']}';
     // convert the JSON to js obj
     obj = JSON.parse(text);
-    alert(obj.message[0].message_body);
+    //{"message_id":5,"message_body":"tester","username":"Mustafa","secret_chanell":"1101998"}
+    var message = obj.message[0];
+    if(message.username != username && message.secret_chanell == secretChanell){
+        var messageTable = document.getElementById("messagesTable");
+        var tr = document.createElement("tr");
+        var th = document.createElement("th");
+        var messagePar = document.createElement("p");
+        var messageNode = document.createTextNode(message.message_body);
+
+        th.className += "messageFromWrapper";
+        messagePar.className += "messageFrom";
+
+        messagePar.appendChild(messageNode);
+        th.appendChild(messagePar);
+        tr.appendChild(th);
+        messageTable.appendChild(tr);
+
+
+        //to scroll down to the last message
+        var objDiv = document.getElementById("messagesTableTop");
+        objDiv.scrollTop = objDiv.scrollHeight;
+       }
+    
+    
 });
